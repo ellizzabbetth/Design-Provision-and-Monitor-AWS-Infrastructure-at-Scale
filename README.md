@@ -26,23 +26,55 @@ Plan, design, provision, and monitor infrastructure in AWS using industry-standa
 - [Reduced_Cost_Estimate](Task3/Reduced_Cost_Estimate.csv)
 - [Increased_Cost Estimate](Task3/Increased_Cost_Estimate.csv)
 
-### Task 4 Infrastructure as Code
+https://calculator.aws/#/estimate?id=36b31200221d54ceee14d53b6694fa6b504aa448
+
+### Reduced costs changes
+
+Changes:
+
+- Use more but smaller EC2 instances
+- Use smaller RDS instances
+- Use reserved instances
+
+Reasoning:
+
+- The use of smaller EC2 instances allows for more granular autoscaling. However there is a risk that this could reduce performance.
+- The use of smaller RDS instances allows for significantly lower costs. However this could negatively impact database performance.
+- Using reserved instances will significantly reduce costs. The disadvantage is the loss in flexibility since it requires a commitment to using the selected infrastructure for the next year. 
+
+### Increased costs changes
+
+Changes:
+
+- Larger RDS instances
+- More EC2 instances for scaling
+- Third availability zone set up in us-east-2
+  - Elastic Load Balancing
+  - EC2 Auto Scaling (web and application server)
+  - RDS read replica
+  - VPC NAT Gateway
+  - CloudFront
+  - S3 Bucket
+
+
+Reasoning:
+
+- Larger RDS instances will improve database performance and allow for horizonal scaling.
+- More EC2 instances improve application performance and will allow for vertical scaling.
+- Third availability zone in a second region allows for failover if there is a region wide disaster and the `us-east-1` region experiences an outage. This is unlikely to happen so this feature is more of a nice-to-have rather than an neccesscity.
+
+
+
+### Task 4a Infrastructure as Code
 
 - [Terraform 6 EC2](Task5/Terraform_1_1.PNG)
 - [Terraform 4 EC2](Task5/Terraform_1_2.PNG)
+
+### Task 4b Use Terraform to Provision AWS Infrastructure
+
 - [Terraform EC2](Task5/Terraform_2_1.PNG)
-- [Terraform_destroyed](Terraform_destroyed.png)
 
-### Task 4 Set up Cost Monitoring
-- [CloudWatch_alarm](Task4/CloudWatch_alarm.PNG)
-
-### Task 5 Use Terraform to Provision AWS Infrastructure
-
-
-- [Terraform VPC](Task5/Terraform_2_2.PNG)
-- [Terraform CloudWatch](Task5/Terraform_2_3.PNG)
-
-### Task 6 Destroy the Infrastructure using Terraform
+### Task 4c Destroy the Infrastructure using Terraform
 
 - [Terraform_destroyed](Task5/Terraform_destroyed.PNG)
 
@@ -89,3 +121,13 @@ Plan, design, provision, and monitor infrastructure in AWS using industry-standa
 
 ![](screenshots/Terraform_destroyed.png)
 
+
+Resources
+1. https://www.youtube.com/watch?v=4ZCrRbPR3gc
+2. Serverless Architecture: https://aws.amazon.com/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
+3. How to Setup Terraform with AWS in Windows | Run Terraform from local | Automate AWS Infrastructure: https://www.youtube.com/watch?v=4ZCrRbPR3gc
+
+terraform init
+terraform plan
+terraform apply
+terraform destroy --target aws_instance.UdacityM4
