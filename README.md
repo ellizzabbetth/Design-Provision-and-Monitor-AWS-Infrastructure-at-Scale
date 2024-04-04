@@ -67,16 +67,16 @@ Reasoning:
 
 ### Task 4a Infrastructure as Code
 
-- [Terraform 6 EC2](Task5/Terraform_1_1.PNG)
-- [Terraform 4 EC2](Task5/Terraform_1_2.PNG)
+- [Terraform 6 EC2](Task5/Terraform_1_1.png)
+- [Terraform 4 EC2](Task5/Terraform_1_2.png)
 
 ### Task 4b Use Terraform to Provision AWS Infrastructure
 
-- [Terraform EC2](Task5/Terraform_2_1.PNG)
+- [Terraform EC2](Task5/Terraform_2_1.png)
 
 ### Task 4c Destroy the Infrastructure using Terraform
 
-- [Terraform_destroyed](Task5/Terraform_destroyed.PNG)
+- [Terraform_destroyed](Task5/Terraform_destroyed.png)
 
 
 
